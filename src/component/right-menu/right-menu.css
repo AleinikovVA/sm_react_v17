@@ -1,0 +1,5 @@
+.right-menu {
+    flex: 30%;
+    box-shadow: 0 0 0 1px black;
+    margin-bottom: 10px;
+}

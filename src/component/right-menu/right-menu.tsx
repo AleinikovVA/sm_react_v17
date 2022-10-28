@@ -1,7 +1,10 @@
 import React from "react";
+import './right-menu.css';
 
 export function RightMenu() {
     return (
-        <h3>Подчиненые</h3>
+        <div className="right-menu item">
+            <h3>Подчиненые</h3>
+        </div>
     )
 }

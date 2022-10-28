@@ -15,3 +15,8 @@ code {
 h3 {
   padding: 1rem;
 }
+
+#root>div {
+  display: flex;
+  flex-wrap: wrap;
+}
