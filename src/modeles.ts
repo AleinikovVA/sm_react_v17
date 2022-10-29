@@ -6,3 +6,8 @@ export interface ILeagues {
     leagueType: string
     roles: {[key: string]: any}
 }
+
+export interface IEmp {
+    id: number
+    name: string
+}
