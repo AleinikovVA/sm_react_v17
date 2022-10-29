@@ -1,0 +1,10 @@
+.role {
+    box-shadow: 0 0 0 1px black;
+    text-align: center;
+    margin: 1rem;
+    width: 10%;
+}
+
+.roles {
+    display: flex;
+}

@@ -1,39 +1,26 @@
 import React from 'react';
-import './body.css';
-
+import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Items from '../items/items';
 
 interface BodyProps {
   leagues: {}
 }
 
-interface ILeagues {
-  id: number
-  title: string
-  info: string
-  leagueType: string
-  roles: {
-    id?: number
-    title: string
-    data: number
-  }
-}
 
-
-export default function SpacingGrid({ leagues }: BodyProps) {
-
-  const arrLeagues = Object.values(leagues) as [];
-
+export default function Body({ leagues }: BodyProps) {
   return (
-    <div className='body item'>
-      <h3>Лиги</h3>
-      <div className='items'>
-        {arrLeagues.map((value: ILeagues) => (
-          <div key={value.id}>
-            <p><b>{value.title}</b></p>
-            <p>{value.info}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <Router>
+        <Items leagues={leagues}/>
+      {/* <Routes>
+        <Route path='/'/>
+        <Route path='/detail'/>
+      </Routes> */}
+    </Router>
   );
 }

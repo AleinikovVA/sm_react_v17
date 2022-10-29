@@ -14,9 +14,11 @@ code {
 
 h3 {
   padding: 1rem;
+  margin: -0.3rem;
 }
 
-#root>div {
+.app, body {
   display: flex;
-  flex-wrap: wrap;
+  min-height: 623px;
+  background-color: #d8e8eb;
 }

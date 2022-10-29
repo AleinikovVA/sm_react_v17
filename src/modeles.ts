@@ -4,9 +4,5 @@ export interface ILeagues {
     title: string
     info: string
     leagueType: string
-    roles: {
-        id?: number
-        title: string
-        data: number
-    }
+    roles: {[key: string]: any}
 }
