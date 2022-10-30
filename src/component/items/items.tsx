@@ -9,6 +9,9 @@ import {
 import Roles from '../roles/roles';
 import './items.css';
 
+import { Provider } from 'react-redux'
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 interface BodyProps {
   leagues: {}
 }
@@ -50,7 +53,6 @@ export default function Items({ leagues }: BodyProps) {
           </div>
         ))}
       </div>}
-
       {detail === true && (
         <>
           <div className='card'>

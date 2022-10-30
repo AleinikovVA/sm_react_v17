@@ -22,14 +22,18 @@ interface IRole {
 export default function Roles({ league }: RolesProps) {
   const arrRoles = Object.values(league.roles) as [];
   return (
+    <>
+    <h3>Роли</h3>
     <div className='roles'>
-      {arrRoles.length > 0 && arrRoles.map((value: IRole) =>
-        <div className='role'>
+      
+      {arrRoles.length > 0 && arrRoles.map((value: IRole, key:number) =>
+        <div className='role' key={key}>
           <p>{value.title}</p>
-          <p>{value.data}</p>
+          <p>{value.data + "%"}</p>
         </div>
       )}
     </div>
+    </>
   );
 }
 

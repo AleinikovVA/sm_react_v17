@@ -9,7 +9,7 @@
     "@fullcalendar/interaction": "^5.10.0",
     "@fullcalendar/react": "^5.10.0",
     "@fullcalendar/timegrid": "^5.10.0",
-    "@material-ui/core": "^4.12.3",
+    "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/pickers": "^3.3.10",
@@ -23,6 +23,7 @@
     "downshift": "^3.4.8",
     "es6-object-assign": "^1.1.0",
     "es6-promise": "^4.2.8",
+    "history": "^5.3.0",
     "html-react-parser": "^1.4.4",
     "immer": "^9.0.16",
     "intro.js": "^5.1.0",
@@ -37,16 +38,17 @@
     "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-lottie-player": "^1.4.1",
-    "react-redux": "^7.2.6",
-    "react-router": "5.2.0",
-    "react-router-dom": "6.4.2",
+    "react-redux": "^7.2.9",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^6.4.2",
+    "react-router-redux": "^4.0.8",
     "react-rte": "^0.16.3",
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.4",
     "react-swipeable-views": "^0.14.0",
     "react-transition-group": "^4.4.2",
     "react-window": "^1.8.6",
-    "redux": "^4.1.1",
+    "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "typescript": "^4.4.4",
     "whatwg-fetch": "^3.6.2"
@@ -76,6 +78,10 @@
     ]
   },
   "devDependencies": {
-    "@types/react-dom": "^18.0.8"
+    "@types/material-ui": "^0.21.12",
+    "@types/react-dom": "^18.0.8",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/redux": "^3.6.0"
   }
 }

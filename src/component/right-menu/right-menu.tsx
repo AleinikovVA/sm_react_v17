@@ -12,8 +12,7 @@ export function RightMenu() {
     let emptyName = true;
     let names: any = [];
     emp.map((value: IEmp, key: number) => {
-        if (value.name.includes(message) === true)
-        {
+        if (value.name.includes(message) === true) {
             emptyName = false;
         }
         names.push(<li key={key}>{value.name}</li>);
@@ -29,18 +28,15 @@ export function RightMenu() {
                 placeholder="Введите имя" />
             <ul>
                 {emp.map((value: IEmp, key: number) => (
-                    <>
+                    <div key={key}>
                         {value.name.toUpperCase().includes(message.toUpperCase()) === true ?
-                            <>
-                                <li key={key}>{value.name}</li>
-                                
-                            </>
+                            <li key={key}>{value.name}</li>
                             :
                             null
                         }
-                    </>
+                    </div>
                 ))}
-                {emptyName === true && message && 
+                {emptyName === true && message &&
                     <b>Ничего не найдено</b>
                 }
             </ul>
