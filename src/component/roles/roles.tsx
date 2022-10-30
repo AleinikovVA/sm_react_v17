@@ -25,7 +25,6 @@ export default function Roles({ league }: RolesProps) {
     <>
     <h3>Роли</h3>
     <div className='roles'>
-      
       {arrRoles.length > 0 && arrRoles.map((value: IRole, key:number) =>
         <div className='role' key={key}>
           <p>{value.title}</p>
@@ -36,11 +35,3 @@ export default function Roles({ league }: RolesProps) {
     </>
   );
 }
-
-// function About() {
-//   return (
-//     <div>
-//       <h3>About</h3>
-//     </div>
-//   );
-// }

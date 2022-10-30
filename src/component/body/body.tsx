@@ -1,26 +1,24 @@
 import React from 'react';
-import { useState } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Items from '../items/items';
-
+import ItemDetail from '../item-detail/item-detail';
+import './body.css';
 interface BodyProps {
   leagues: {}
 }
 
-
 export default function Body({ leagues }: BodyProps) {
+
   return (
-    <Router>
-        <Items leagues={leagues}/>
-      {/* <Routes>
-        <Route path='/'/>
-        <Route path='/detail'/>
-      </Routes> */}
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Items leagues={leagues} />} />
+        <Route path='detail' element={<ItemDetail leagues={leagues} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

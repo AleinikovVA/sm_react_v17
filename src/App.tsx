@@ -8,7 +8,10 @@ function App() {
 
   return (
     <div className='app'>
-      <Body leagues={leagues} />
+      <div className='body'>
+        <h3>Лиги</h3>
+        <Body leagues={leagues} />
+      </div>
       <RightMenu />
     </div>
   )

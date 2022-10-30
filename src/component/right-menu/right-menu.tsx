@@ -5,17 +5,18 @@ import { IEmp } from "../../modeles";
 import { element } from "prop-types";
 
 export function RightMenu() {
+
     const [message, setMessage] = useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);
     };
+
     let emptyName = true;
-    let names: any = [];
+
     emp.map((value: IEmp, key: number) => {
-        if (value.name.includes(message) === true) {
+        if (value.name.toUpperCase().includes(message.toUpperCase()) === true) {
             emptyName = false;
         }
-        names.push(<li key={key}>{value.name}</li>);
     })
 
     return (
