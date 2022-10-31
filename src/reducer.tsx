@@ -29,7 +29,10 @@ const reducer:any = (state = initialState, action:any) => {
     switch(action.type){
 
         case 'ADD_EMP':
-            return {...state, emps:[...state.emps].push(action.payload)}
+            const ret = {...state, emps:[...state.emps].push(action.payload)}
+            state.emps.push(action.payload)
+            console.log(state)
+            return state
 
         case 'DEL_EMP':
             return {...state, emps:[...state.emps].filter((el) => el !== action.payload)}

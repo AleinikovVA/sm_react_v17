@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import './right-menu.css';
 import { IEmp } from "../../modeles";
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { addEmp, delEmp } from '../../actions'
-
+import { IState } from '../../reducer';
 
 const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
-    const { emp } = props
+
+    const emp = useSelector<IState, any>((state => state.emps));
+    const dispatch = useDispatch();
+    const [newUserElement, setNewUserElement] = useState([]);
     const [message, setMessage] = useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);
@@ -19,6 +22,20 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
         }
     })
 
+    const newElement:any = (nextId:number,newUser:object) => {
+        return <li key={nextId} >{message} <a className="close" onClick={() => dispatch(delEmp(newUser))}>x</a></li>;
+      };
+
+    const addEmpWithButton = (message: string) => {
+        const nextId = Math.max(...emp.map((o: any) => o.id)) + 1;
+        const newUser = {
+            'id': nextId,
+            'name': message
+        }
+        dispatch(addEmp(newUser));
+        
+        setNewUserElement(newElement(nextId, newUser));
+    }
     return (
         <div className="right-menu item">
             <h3>Подчиненые</h3>
@@ -31,7 +48,7 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
                 {emp.map((value: IEmp) => (
                     <div key={value.id}>
                         {value.name.toUpperCase().includes(message.toUpperCase()) === true ?
-                            <li key={value.id} >{value.name} <a className="close" onClick={() => props.delEmp(value)}>x</a></li>
+                            <li key={value.id} >{value.name} <a className="close" onClick={() => dispatch(delEmp(value))}>x</a></li>
                             :
                             null
                         }
@@ -41,7 +58,8 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
                     <>
                         {console.log(message)}
                         <b>Ничего не найдено</b>
-                        <button onClick={() => props.addEmp({})}>Добавить</button>
+                        <button onClick={() => addEmpWithButton(message)}>Добавить</button>
+                        {newUserElement}
                     </>
                 }
             </ul>
