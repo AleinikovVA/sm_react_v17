@@ -7,11 +7,20 @@ import { element } from "prop-types";
 export function RightMenu() {
 
     const [message, setMessage] = useState('');
+
+    const [list, setList] = useState(emp);
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);
     };
 
     let emptyName = true;
+
+    function handleRemove(id:number) {
+        const newList = list.filter((item) => item.id !== id);
+
+        setList(newList);
+      }
 
     emp.map((value: IEmp, key: number) => {
         if (value.name.toUpperCase().includes(message.toUpperCase()) === true) {
@@ -28,10 +37,12 @@ export function RightMenu() {
                 type="text"
                 placeholder="Введите имя" />
             <ul>
-                {emp.map((value: IEmp, key: number) => (
-                    <div key={key}>
+                {list.map((value: IEmp, key: number) => (
+                    <div key={value.id}>
                         {value.name.toUpperCase().includes(message.toUpperCase()) === true ?
-                            <li key={key}>{value.name}</li>
+                            <><li key={value.id} >{value.name} <a className="close" onClick={() => handleRemove(value.id)}>x</a></li>
+                            
+                            </>
                             :
                             null
                         }

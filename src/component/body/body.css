@@ -6,6 +6,7 @@
     flex-direction: column;
     height: 20rem;
     margin: 0 27.9rem;
+    margin-top: 7px;
 }
 .items .cards {
     margin: 8px;

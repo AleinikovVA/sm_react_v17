@@ -29,3 +29,19 @@
     background-color: #FFF;
     border: 1px solid #84A2FA;
 }
+.close{
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+}
+ul {
+    list-style-type: none;
+}
+
+li {
+    border: 1px solid #D5D9DB;
+    border-radius: 100px;
+    padding: 0.5rem;
+    margin: 0.2rem;
+    margin-right: 1.5rem;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Roles from '../roles/roles';
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,7 @@ export default function ItemDeatil({ leagues }: BodyProps) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const leagueKey:any = urlParams.get('key')
-
+  
   return (
           <>
             <div className='card'>
