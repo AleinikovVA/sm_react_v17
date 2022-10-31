@@ -16,7 +16,7 @@ export default function Body({ leagues }: BodyProps) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Items leagues={leagues} />} />
+        <Route path='/' element={<Items />} />
         <Route path='detail' element={<ItemDetail leagues={leagues} />} />
       </Routes>
     </BrowserRouter>

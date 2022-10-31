@@ -1,6 +1,6 @@
 import React from 'react';
 import Body from './component/body/body'
-import { RightMenu } from './component/right-menu/right-menu'
+import RightMenu from './component/right-menu/right-menu'
 import { leagues } from './data/leagues';
 import './index.css';
 

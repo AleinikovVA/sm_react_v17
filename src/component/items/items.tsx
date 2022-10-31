@@ -1,6 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 interface BodyProps {
   leagues: {}
@@ -18,7 +18,7 @@ interface ILeagues {
   }
 }
 
-export default function Items({ leagues }: BodyProps) {
+const Items = ({ leagues }: BodyProps) => {
 
   const arrLeagues = Object.values(leagues) as [];
 
@@ -34,3 +34,11 @@ export default function Items({ leagues }: BodyProps) {
     </div>
   )
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    leagues: state.leagues
+  }
+}
+
+export default connect(mapStateToProps)(Items);
