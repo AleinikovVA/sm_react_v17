@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './right-menu.css';
 import { IEmp } from "../../modeles";
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { addEmp, delEmp } from '../../actions'
 import { IState } from '../../reducer';
 
-const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
+// const RightMenu: React.FC<IStateProps & IDispatchProps> = () => {
+const RightMenu = () => {
 
     const emp = useSelector<IState, any>((state => state.emps));
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
     })
 
     const newElement:any = (nextId:number,newUser:object) => {
-        return <li key={nextId} >{message} <a className="close" onClick={() => dispatch(delEmp(newUser))}>x</a></li>;
+        return <li style={{backgroundColor:"green"}} key={nextId} >{message} <a className="close" onClick={() => dispatch(delEmp(newUser))}>x</a></li>;
       };
 
     const addEmpWithButton = (message: string) => {
@@ -36,6 +37,11 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
         
         setNewUserElement(newElement(nextId, newUser));
     }
+
+    if(Object.keys(newUserElement).length > 0){
+        setNewUserElement([])
+    }
+
     return (
         <div className="right-menu item">
             <h3>Подчиненые</h3>
@@ -56,9 +62,8 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
                 ))}
                 {emptyName === true && message &&
                     <>
-                        {console.log(message)}
-                        <b>Ничего не найдено</b>
-                        <button onClick={() => addEmpWithButton(message)}>Добавить</button>
+                        <b>Пользователь не найден</b>
+                        <li><button onClick={() => addEmpWithButton(message)}>+</button>{message}</li>
                         {newUserElement}
                     </>
                 }
@@ -66,34 +71,34 @@ const RightMenu: React.FC<IStateProps & IDispatchProps> = (props) => {
         </div>
     )
 }
+export default (RightMenu);
+// interface IStateProps {
+//     emp: []
+// }
 
-interface IStateProps {
-    emp: []
-}
+// interface IDispatchProps {
+//     delEmp(ob: object): void,
+//     addEmp(ob: object): void
+// }
 
-interface IDispatchProps {
-    delEmp(ob: object): void,
-    addEmp(ob: object): void
-}
+// const mapStateToProps = (state: any) => {
+//     return {
+//         emp: state.emps
+//     }
+// }
 
-const mapStateToProps = (state: any) => {
-    return {
-        emp: state.emps
-    }
-}
+// const mapDispatchToProps = (dispatch: any) => {
 
-const mapDispatchToProps = (dispatch: any) => {
-
-    return {
-        delEmp: (ob: object) => {
-            dispatch(delEmp(ob))
-        },
-        addEmp: (ob: object) => {
-            dispatch(addEmp(ob))
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(RightMenu);
+//     return {
+//         delEmp: (ob: object) => {
+//             dispatch(delEmp(ob))
+//         },
+//         addEmp: (ob: object) => {
+//             dispatch(addEmp(ob))
+//         }
+//     }
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(RightMenu);
 
 // дубль с useSelector, useDespatch
 //+ типизация

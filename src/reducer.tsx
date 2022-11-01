@@ -31,7 +31,6 @@ const reducer:any = (state = initialState, action:any) => {
         case 'ADD_EMP':
             const ret = {...state, emps:[...state.emps].push(action.payload)}
             state.emps.push(action.payload)
-            console.log(state)
             return state
 
         case 'DEL_EMP':

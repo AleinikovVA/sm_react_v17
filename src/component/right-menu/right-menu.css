@@ -45,3 +45,6 @@ li {
     margin: 0.2rem;
     margin-right: 1.5rem;
 }
+li>button{
+    margin: 0 0.3rem;
+}
